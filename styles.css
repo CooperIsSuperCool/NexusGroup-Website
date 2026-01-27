@@ -1,0 +1,28 @@
+.montserrat {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    background-color: #F7F4EB;
+    font-family: montserrat;
+}
+
+p{
+    font-family: geist;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 25px;
+}
+
+header a {
+    margin: 7px;
+    
+}
