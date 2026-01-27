@@ -8,21 +8,132 @@
 * {
     margin: 0;
     padding: 0;
-    background-color: #F7F4EB;
     font-family: montserrat;
 }
 
 p{
     font-family: geist;
+    font-size: large;
+}
+
+h2 {
+    font-size: 42px;
+    font-weight: 400;
+}
+
+h3 {
+    font-size: 32px;
+    font-weight: 400;
 }
 
 header{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+
     display: flex;
     justify-content: space-between;
-    padding: 25px;
+    align-items: center;
+    padding: 7px 20px 7px 20px;
+    background-color: #F7F4EB;
+    height: 100px;
+
+    border-bottom: 1px solid #31110F;
+
+    
+    a{
+       margin: 7px; 
+    }
+
+    a:hover {
+        font-weight: 600;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    img{
+    width: 50px;
+    margin: 7px;
+    }
 }
 
-header a {
-    margin: 7px;
+.landing {
+    background-color: black;
+    height: 70%;
+
+    background-image: url("images/Nexus_Logo_1003-11 (1).png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position-x: center;
+    background-position-y: top;
+    background-size: 1500px;
+}
+
+.nexus-tagline {
+    background-color: #F7F4EB;
+    padding: 35px 25px;
+    display: flex;
+    justify-content: center;
+
+    img {
+        width: 100%;
+        max-width: 1000px;
+    }
+}
+
+.projects {
+    background-color: black;
+    height: 200px;
+}
+
+.about {
+    padding: 50px;
+    display: grid;
+    gap: 15px;
+    justify-items: end;
+
+    background-color: F7F4EB;
+
+    button{
+        all: unset;
+
+        background-color: #31110F;
+        color: #F7F4EB;
+        height: 45px;
+        width: 170px;
+        border-radius: 25px;
+        text-align: center;
+        
+        margin-top: 20px;
+        border: 2px solid #31110F;
+    }
     
+    button:hover {
+        background-color: #4c2825;
+    }
+}
+
+.contact {
+    padding: 50px;
+    display: grid;
+    gap: 15px;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 7px 20px 7px 20px;
+    background-color: #F7F4EB;
+    height: 150px;
+
+    img{
+        width: 75px;
+    }
+
+    a:hover {
+        font-weight: 600;
+        cursor: pointer;
+        user-select: none;
+    }
 }
