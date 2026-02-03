@@ -14,6 +14,7 @@
 p{
     font-family: geist;
     font-size: large;
+    line-height: 27px;
 }
 
 h2 {
@@ -40,9 +41,13 @@ header{
 
     border-bottom: 1px solid #31110F;
 
+    z-index: 1;
+
     
     a{
        margin: 7px; 
+       text-decoration: none;
+       color: black;
     }
 
     a:hover {
@@ -69,6 +74,21 @@ header{
     background-size: 1500px;
 }
 
+.pagetitle {
+    background-color: black;
+    color: white;
+    font-weight: 800;
+    font-size: 50px;
+    height: 275px;
+
+    display: flex;
+    align-items: flex-end;
+
+    h1{
+        line-height: 70px;
+    }
+}
+
 .nexus-tagline {
     background-color: #F7F4EB;
     padding: 35px 25px;
@@ -81,18 +101,103 @@ header{
     }
 }
 
-.projects {
+.projects-examples {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    gap: 15px;
+
     background-color: black;
-    height: 200px;
+    height: 60%;
+    
+    padding: 35px 0 35px 0;
+
+    .card{
+        background-color: #ddd;
+        border-radius: 0px;
+    }
+
+    .card:hover {
+        background-color: #b1b1b1;
+        cursor: pointer;
+    }
+
+    .div1 {
+        grid-column: span 2 / span 2;
+        grid-row: span 6 / span 6;
+    }
+
+    .div2 {
+        grid-column: span 4 / span 4;
+        grid-row: span 3 / span 3;
+        grid-column-start: 3;
+    }
+
+    .div3 {
+    grid-column: span 2 / span 2;
+    grid-row: span 3 / span 3;
+    grid-column-start: 3;
+    grid-row-start: 4;
+    }
+
+    .div4 {
+    grid-column: span 2 / span 2;
+    grid-row: span 3 / span 3;
+    grid-column-start: 5;
+    grid-row-start: 4;
+    }
+}
+
+.projects {
+    background-color: #F7F4EB;
+    padding: 50px;
+
+    .projects-intro-card {
+        background-color: white;
+        filter: drop-shadow(0 0 10px #bdb7a6);
+
+        padding: 15px;
+        margin-bottom: 30px;
+
+        h3 {
+            padding-bottom: 8px;
+        }
+    }
+
+    .responsive-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 16px;
+        padding: 16px;
+
+
+        .grid-item {
+            position: relative;
+            overflow: hidden;
+            height: auto;
+            width: 250px;
+            height: 250px;
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+
+
+        }
+    }
 }
 
 .about {
     padding: 50px;
     display: grid;
     gap: 15px;
-    justify-items: end;
-
-    background-color: F7F4EB;
+    justify-items: center;
+    align-items: center;
+    background-color: #F7F4EB;
 
     button{
         all: unset;
@@ -102,10 +207,14 @@ header{
         height: 45px;
         width: 170px;
         border-radius: 25px;
-        text-align: center;
         
         margin-top: 20px;
         border: 2px solid #31110F;
+
+        display: flex;
+        justify-self: end;
+        justify-content: center;
+        align-items: center;
     }
     
     button:hover {
@@ -113,10 +222,110 @@ header{
     }
 }
 
+.info {
+    width: 70%;
+    border-bottom: 1px solid #31110F;
+}
+
+summary {
+    padding: 50px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+summary h2 {
+    margin: 0;
+}
+
+.icon {
+    font-size: 30px;
+    transition: transform 0.3s ease;
+}
+
+details[open] .icon {
+    transform: rotate(45deg);
+}
+
+.info-content {
+    padding: 0 50px 50px;
+    display: grid;
+    gap: 15px;
+}
+
 .contact {
     padding: 50px;
     display: grid;
-    gap: 15px;
+
+    h2 {
+        margin-top: 0;
+        text-align: center;
+        padding-bottom: 10px;
+    }
+
+    p {
+        padding-bottom: 15px;
+        text-align: center;
+    }
+}
+
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.875rem;
+    display: none;
+}
+
+.submit-button {
+    all: unset;
+
+    background-color: #31110F;
+    color: #F7F4EB;
+    height: 45px;
+    width: 300px;
+    border-radius: 25px;
+        
+    margin-top: 20px;
+    border: 2px solid #31110F;
+
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.submit-button:hover {
+    background-color: #4c2825;
 }
 
 footer {
