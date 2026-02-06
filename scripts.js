@@ -1,3 +1,52 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+
+    document.addEventListener('click', (e) => {
+        if (e.target.matches('.grid-item img')) {
+            lightboxImg.src = e.target.src;
+            lightbox.classList.add('active');
+        }
+
+        if (e.target === lightbox) {
+            lightbox.classList.remove('active');
+        }
+    });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    const slides = document.querySelectorAll(".carousel .slide");
+    const nextBtn = document.querySelector(".carousel .next");
+    const prevBtn = document.querySelector(".carousel .prev");
+
+    let index = 0;
+
+    function showSlide(i) {
+        slides.forEach(slide => slide.classList.remove("active"));
+        slides[i].classList.add("active");
+    }
+
+    nextBtn.addEventListener("click", () => {
+        index = (index + 1) % slides.length;
+        showSlide(index);
+    });
+
+    prevBtn.addEventListener("click", () => {
+        index = (index - 1 + slides.length) % slides.length;
+        showSlide(index);
+    });
+});
+
+nextBtn.addEventListener("click", () => {
+    index = (index + 1) % slides.length;
+    showSlide(index);
+});
+
+prevBtn.addEventListener("click", () => {
+    index = (index - 1 + slides.length) % slides.length;
+    showSlide(index);
+});
+
 document.getElementById('contactForm').addEventListener('submit', function (event) {
     event.preventDefault();
 
@@ -50,5 +99,3 @@ document.getElementById('contactForm').addEventListener('submit', function (even
         // You can also submit the form here using AJAX or similar methods
     }
 });
-
-
