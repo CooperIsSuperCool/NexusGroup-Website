@@ -99,3 +99,17 @@ document.getElementById('contactForm').addEventListener('submit', function (even
         // You can also submit the form here using AJAX or similar methods
     }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const track = document.querySelector(".scroller-track");
+  if (!track) return;
+
+  // Measure original width
+  const originalWidth = track.scrollWidth;
+
+  // Duplicate content
+  track.innerHTML += track.innerHTML;
+
+  // Set CSS variable AFTER duplication
+  track.style.setProperty("--scroll-width", `${originalWidth}px`);
+});
