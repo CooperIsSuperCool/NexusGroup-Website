@@ -85,10 +85,12 @@ header{
     display: flex;
     align-items: flex-end;
 
-    -webkit-text-stroke: 2px black;
-
     h1{
         line-height: 70px;
+    }
+
+    .outlined-letter{
+        -webkit-text-stroke: 2px black;
     }
 }
 
@@ -246,19 +248,23 @@ header{
 }
 
 .about-additional {
-    display: grid;
+    display: flex;
     justify-self: center;
-    width: 80%;
-    gap: 45px;
-    padding: 50px;
+    width: 100%;
+    background-color: black;
 
-    h2, h3{
-        padding-bottom: 15px;
+    .about-additional-text {
+        background-color: white;
+        display: grid;
+        gap: 20px;
+        padding: 50px;
     }
 
     img {
-        width: 20%;
-        height: auto;
+        width: 40%;
+        height: 100%;
+        object-fit: cover;
+        align-self: center;
     }
 }
 
@@ -586,6 +592,12 @@ footer {
 
         h2 {
             font-size: 34px;
+        }
+    }
+
+    .about-additional{
+        img {
+            display: none;
         }
     }
 
