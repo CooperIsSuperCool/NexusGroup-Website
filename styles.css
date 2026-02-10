@@ -438,6 +438,10 @@ textarea {
         position: relative;
         overflow: hidden;
         max-width: 900px;
+
+        h2 {
+                font-weight: 550
+        }
     }
 }
 
@@ -611,12 +615,12 @@ footer {
     }
 
     .carousel{
-    background-color: black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 500px;
-    width: 100%;
+        background-color: black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 400px;
+        width: 100%;
 
         .carousel-card{
             background-color: white;
@@ -634,6 +638,10 @@ footer {
             position: relative;
             overflow: hidden;
             max-width: 900px;
+
+            h2 {
+                font-weight: 500;
+            }
         }
     }
 
