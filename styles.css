@@ -419,13 +419,13 @@ textarea {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 500px;
+    height: 350px;
     width: 100%;
 
     .carousel-card{
         background-color: white;
-        height: 80%;
-        width: 90%;
+        height: 70%;
+        width: 60%;
         border-radius: 25px;
         display: flex;
 
@@ -452,8 +452,6 @@ textarea {
     inset: 0;
     color: black;
 
-    padding: 0 80px 0 80px;
-
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.5s ease;
@@ -463,18 +461,10 @@ textarea {
     align-items: center;
     text-align: center;
     gap: 20px;
+
+    flex-direction: column;
 }
 
-.slide img {
-    height: 80%;
-    width: 50%;
-    
-    object-fit: cover;
-    object-position: center;
-    display: block;
-
-    cursor: pointer;
-}
 
 .slide.active {
     opacity: 1;
@@ -506,44 +496,52 @@ textarea {
     border-radius: 100px;
 }
 
-
-.infinite-scroller {
-  width: 100%;
-  overflow: hidden;
-  background-color: black;
-  padding-bottom: 50px;
+.scroll-wrapper{
+    height: 315px;
 }
 
-.scroller-track {
-  display: flex;
-  width: max-content;
-  animation: translateX(0);
+.infinite-scroll {
+    position: absolute;
+    
+    width: 100%;
+    overflow: hidden;
+    background-color: black;
+    padding-bottom: 40px;
 }
 
-.scroller-item {
-    width: 250px;
-    height: 100px;
-    margin-right: 30px;
-    background: #222;
-    color: white;
-    padding: 40px;
-    text-align: center;
-    border-radius: 10px;
-    font-size: 1.2rem;
-    flex-shrink: 0;
+.scroll-track {
+    display: none;
+    gap: 20px;
+    width: max-content;
+    animation: scroll 20s linear infinite;
+
+    animation-play-state: paused;
 }
 
-.infinite-scroller:hover .scroller-track {
-  animation-play-state: paused;
+.scroll-track.active{
+    display: flex;
+    animation-play-state: running;
+}
+
+.scroll-track img {
+    height: 275px;
+    width: 400px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+/* pause animation when slide is inactive */
+.scroll-track:hover {
+    animation-play-state: paused;
 }
 
 @keyframes scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(calc(-1 * var(-50%)));
-  }
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
 }
 
 footer {
@@ -565,7 +563,7 @@ footer {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
     .landing {
         background-color: black;
         height: 60%;
@@ -610,5 +608,43 @@ footer {
                 height: 270px;
             }
         }
+    }
+
+    .carousel{
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 500px;
+    width: 100%;
+
+        .carousel-card{
+            background-color: white;
+            height: 80%;
+            width: 90%;
+            border-radius: 25px;
+            display: flex;
+
+            gap: 20px;
+            align-items: center;
+            justify-content: center;
+
+            border: white solid 10px;
+
+            position: relative;
+            overflow: hidden;
+            max-width: 900px;
+        }
+    }
+
+    .scroll-wrapper{
+        height: 240px;
+    }
+
+    .scroll-track img {
+        height: 200px;
+        width: 250px;
+        border-radius: 12px;
+        object-fit: cover;
     }
 }

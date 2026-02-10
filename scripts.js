@@ -8,6 +8,11 @@ document.addEventListener('DOMContentLoaded', () => {
             lightbox.classList.add('active');
         }
 
+        if (e.target.matches('.scroll-track img')) {
+            lightboxImg.src = e.target.src;
+            lightbox.classList.add('active');
+        }
+
         if (e.target === lightbox) {
             lightbox.classList.remove('active');
         }
@@ -16,35 +21,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener("DOMContentLoaded", () => {
     const slides = document.querySelectorAll(".carousel .slide");
+    const tracks = document.querySelectorAll(".infinite-scroll .scroll-track");
     const nextBtn = document.querySelector(".carousel .next");
     const prevBtn = document.querySelector(".carousel .prev");
 
     let index = 0;
 
-    function showSlide(i) {
+    function updateCarousel(i) {
         slides.forEach(slide => slide.classList.remove("active"));
+        tracks.forEach(track => track.classList.remove("active"));
+
         slides[i].classList.add("active");
+        tracks[i].classList.add("active");
     }
 
     nextBtn.addEventListener("click", () => {
         index = (index + 1) % slides.length;
-        showSlide(index);
+        updateCarousel(index);
     });
 
     prevBtn.addEventListener("click", () => {
         index = (index - 1 + slides.length) % slides.length;
-        showSlide(index);
+        updateCarousel(index);
     });
-});
-
-nextBtn.addEventListener("click", () => {
-    index = (index + 1) % slides.length;
-    showSlide(index);
-});
-
-prevBtn.addEventListener("click", () => {
-    index = (index - 1 + slides.length) % slides.length;
-    showSlide(index);
 });
 
 document.getElementById('contactForm').addEventListener('submit', function (event) {
@@ -98,18 +97,4 @@ document.getElementById('contactForm').addEventListener('submit', function (even
         alert('Form submitted successfully!');
         // You can also submit the form here using AJAX or similar methods
     }
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  const track = document.querySelector(".scroller-track");
-  if (!track) return;
-
-  // Measure original width
-  const originalWidth = track.scrollWidth;
-
-  // Duplicate content
-  track.innerHTML += track.innerHTML;
-
-  // Set CSS variable AFTER duplication
-  track.style.setProperty("--scroll-width", `${originalWidth}px`);
 });
