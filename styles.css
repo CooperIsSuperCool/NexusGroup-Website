@@ -41,7 +41,7 @@ header{
 
     border-bottom: 1px solid #31110F;
 
-    z-index: 1;
+    z-index: 3;
 
     
     a{
@@ -114,25 +114,7 @@ header{
 
     background-color: black;
     height: 700px;
-    
     padding: 35px 0 35px 0;
-
-    .card{
-        background-color: #ddd;
-        overflow: hidden;
-        }
-
-    .card img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-        display: block;
-    }
-
-    .card:hover img{
-        filter: brightness(70%);
-    }
 
     .div1 {
         grid-column: span 2 / span 2;
@@ -159,6 +141,45 @@ header{
     grid-row-start: 4;
     }
 }
+
+.projects-examples .card {
+    position: relative;   /* Enables absolute positioning inside */
+    overflow: hidden;
+}
+
+.projects-examples .card a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.projects-examples .card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.projects-examples .card h3 {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    margin: 0;
+    color: white;
+    font-size: 2rem;
+    z-index: 1;
+    font-weight: 600;
+
+
+    text-shadow: 5px 4px 5px rgba(0, 0, 0, 1);
+}
+
+.projects-examples .card:hover img {
+    filter: brightness(70%);
+}
+
 
 .projects {
     background-color: #F7F4EB;
@@ -440,7 +461,7 @@ textarea {
         max-width: 900px;
 
         h2 {
-                font-weight: 550
+                font-weight: 700
         }
     }
 }
@@ -578,6 +599,38 @@ footer {
         background-position-x: center;
         background-position-y: center;
         background-size: 1000px;
+    }
+
+    .projects-examples {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+
+        background-color: black;
+        height: 800px;
+        padding: 35px 0 35px 0;
+        
+        padding: 20px;
+
+        .div1 {
+            grid-column: span 2 / span 2;
+            grid-row: span 5 / span 3;
+        }
+
+        .div2 {
+            grid-column: span 2 / span 2;
+            grid-row: span 5 / span 3;
+        }
+
+        .div3 {
+        grid-column: span 2 / span 2;
+        grid-row: span 5 / span 3;
+        }
+
+        .div4 {
+        grid-column: span 2 / span 2;
+        grid-row: span 5 / span 3;
+        }
     }
 
     .pagetitle {
