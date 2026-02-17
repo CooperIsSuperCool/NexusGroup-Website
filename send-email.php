@@ -21,7 +21,7 @@ $phone = htmlspecialchars($data['phone']);
 $message = htmlspecialchars($data['message']);
 
 // Email settings
-$to = "copwhitney@gmail.com";
+$to = "david@createwithnexus.com";
 $subject = "Nexus Group Form Submission";
 $body = "
 You have received a new message:
