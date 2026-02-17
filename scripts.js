@@ -46,6 +46,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+
+
 document.getElementById('contactForm').addEventListener('submit', function (event) {
     event.preventDefault();
 
@@ -93,8 +95,32 @@ document.getElementById('contactForm').addEventListener('submit', function (even
     }
 
     // If form is valid, you can submit it or perform any other action
-    if (isValid) {
-        alert('Form submitted successfully!');
-        // You can also submit the form here using AJAX or similar methods
+    if (isValid) {     
+        fetch('send-email.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                name: name,
+                email: email,
+                phone: phone,
+                message: message
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Message sent successfully!');
+                document.getElementById('contactForm').reset();
+            } 
+            else {
+                alert('Error sending message.');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Server error.');
+        });
     }
 });
